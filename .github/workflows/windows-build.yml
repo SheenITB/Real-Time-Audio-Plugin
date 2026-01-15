@@ -42,7 +42,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build solution (Release x64)
-        run: msbuild RealTimeAudio/RealTimeAudio.sln /p:Configuration=Release /p:Platform=x64 /m
+        run: msbuild RealTimeAudio/RealTimeAudio.sln /p:Configuration=Release /p:Platform=x64 /p:IPLUG2_ROOT="%GITHUB_WORKSPACE%\\iPlug2-src" /m
 
       - name: Collect VST3 artifact
         shell: pwsh
