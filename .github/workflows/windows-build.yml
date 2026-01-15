@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      IPLUG2_ROOT: ${{ github.workspace }}\iPlug2-src
     steps:
       - name: Checkout
         uses: actions/checkout@v4
