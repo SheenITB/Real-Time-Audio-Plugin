@@ -16,10 +16,16 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Checkout iPlug2
+        uses: actions/checkout@v4
+        with:
+          repository: iPlug2/iPlug2
+          path: iPlug2-src
+          fetch-depth: 1
+
       - name: Fetch iPlug2 dependencies
         shell: pwsh
         run: |
-          git clone --depth 1 https://github.com/iPlug2/iPlug2.git iPlug2-src
           $dirs = @('Dependencies','IGraphics','IPlug','Scripts')
           foreach ($d in $dirs) {
             if (Test-Path $d) { Remove-Item $d -Recurse -Force }
